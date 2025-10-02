@@ -101,7 +101,7 @@ WHERE type = 'Movie'
   AND release_year = 2020;
 ```
 
-✅ Insight: Filter movies released in a specific year.
+✅ **Insight**: Filter movies released in a specific year.
 
 ### 4️⃣ Top 5 Countries by Content Count
 ```sql
@@ -113,7 +113,7 @@ ORDER BY total_content DESC
 LIMIT 5;
 ```
 
-✅ Insight: Identify which countries produce the most Netflix content (handles multiple countries per row).
+✅ **Insight**: Identify which countries produce the most Netflix content (handles multiple countries per row).
 
 ### 5️⃣ Identify the Longest Movie
 ```sql
@@ -125,7 +125,7 @@ WHERE type = 'Movie'
 );
 ```
 
-✅ Insight: Find the movie with the longest runtime.
+✅ **Insight**: Find the movie with the longest runtime.
 
 ### 6️⃣ Find Content Added in Last 5 Years
 ```sql
@@ -134,7 +134,7 @@ FROM netflix
 WHERE TO_DATE(date_added, 'Month DD, YYYY') >= CURRENT_DATE - INTERVAL '5 years';
 ```
 
-✅ Insight: Retrieve content that was added to Netflix in the last 5 years.
+✅ **Insight**: Retrieve content that was added to Netflix in the last 5 years.
 
 ### 7️⃣ Movies / TV Shows by Director 'Rajiv Chilaka'
 ```sql
@@ -143,7 +143,7 @@ FROM netflix
 WHERE director ILIKE '%Rajiv Chilaka%';
 ```
 
-✅ Insight: List all content (movies & TV shows) directed by Rajiv Chilaka.
+✅ **Insight**: List all content (movies & TV shows) directed by Rajiv Chilaka.
 
 ### 8️⃣ TV Shows with More than 5 Seasons
 ```sql
@@ -153,7 +153,7 @@ WHERE type = 'TV Show'
   AND SPLIT_PART(TRIM(duration), ' ', 1)::numeric > 5;
 ```
 
-✅ Insight: List TV shows having more than 5 seasons (uses TRIM to avoid spacing issues).
+✅ **Insight**: List TV shows having more than 5 seasons (uses TRIM to avoid spacing issues).
 
 ### 9️⃣ Count the Number of Content Items in Each Genre
 ```sql
@@ -164,7 +164,7 @@ GROUP BY 1
 ORDER BY total_count DESC;
 ```
 
-✅ Insight: Get how many items belong to each genre (splits multi-genre rows).
+✅ **Insight**: Get how many items belong to each genre (splits multi-genre rows).
 
 ### 🔟 Yearly Content Percentage in India
 ```sql
@@ -178,7 +178,7 @@ GROUP BY 1
 ORDER BY 1;
 ```
 
-✅ Insight: For each year, show total Indian content and that year’s percentage share of all Indian content.
+✅ **Insight**: For each year, show total Indian content and that year’s percentage share of all Indian content.
 
 ### 1️⃣1️⃣ List All Movies That Are Documentaries
 ```sql
@@ -187,17 +187,16 @@ FROM netflix
 WHERE listed_in ILIKE '%documentaries%';
 ```
 
-✅ Insight: Find movies that belong to documentary genre(s).
+✅ **Insight**: Find movies that belong to documentary genre(s).
 
 ### 1️⃣2️⃣ Find All Content Without a Director
 ```sql
 SELECT *
 FROM netflix
-WHERE director IS NULL
-   OR TRIM(director) = '';
+WHERE director IS NULL;
 ```
 
-✅ Insight: Detect rows with missing director information (NULL or empty string).
+✅ **Insight**: Detect rows with missing director information (NULL or empty string).
 
 ### 1️⃣3️⃣ Movies with 'Salman Khan' in Last 10 Years
 ```sql
@@ -208,7 +207,7 @@ WHERE casts ILIKE '%Salman Khan%'
   AND release_year >= EXTRACT(YEAR FROM CURRENT_DATE) - 10;
 ```
 
-✅ Insight: Count/list movies that include Salman Khan released in the last 10 years (inclusive).
+✅ **Insight**: Count/list movies that include Salman Khan released in the last 10 years (inclusive).
 
 ### 1️⃣4️⃣ Top 10 Actors in Indian Movies
 ```sql
@@ -221,7 +220,7 @@ ORDER BY movies DESC
 LIMIT 10;
 ```
 
-✅ Insight: Identify actors who appear most frequently in Indian movies on Netflix.
+✅ **Insight**: Identify actors who appear most frequently in Indian movies on Netflix.
 
 ### 1️⃣5️⃣ Categorize Content as Bad or Good Based on Keywords
 ```sql
@@ -234,7 +233,7 @@ FROM netflix
 GROUP BY category;
 ```
 
-✅ Insight: Classify content by presence of violent keywords in descriptions and count per category.
+✅ **Insight**: Classify content by presence of violent keywords in descriptions and count per category.
 
 ## 🧠 Key Skills Demonstrated
 
