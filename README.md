@@ -75,11 +75,12 @@ Here’s an **interactive summary** of the queries and insights generated:
 SELECT type, COUNT(*) AS number_of_movies
 FROM netflix
 GROUP BY type;
+```
 
+✅ **Insight**: Understand the distribution of movies and TV shows on Netflix.
 
-✅ Insight: Understand the distribution of movies and TV shows on Netflix.
-
-2️⃣ Most Common Rating per Type
+### 2️⃣ Most Common Rating per Type
+```sql
 SELECT type, rating
 FROM (
     SELECT type, rating, COUNT(*),
@@ -88,6 +89,6 @@ FROM (
     GROUP BY type, rating
 ) AS t1
 WHERE ranking = 1;
-
+```
 
 ✅ Insight: Find the most popular ratings (PG, TV-MA, etc.) in movies vs TV shows.
