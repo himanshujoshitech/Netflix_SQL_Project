@@ -63,6 +63,8 @@ The dataset contains information about **movies and TV shows on Netflix**.
 
 ---
 
+**Dataset Download Link:** [Netflix Shows Dataset on Kaggle](https://www.kaggle.com/datasets/shivamb/netflix-shows?resource=download)
+
 ## 💡 Business Problems & Solutions
 
 Here’s an **interactive summary** of the queries and insights generated:
