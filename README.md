@@ -10,11 +10,11 @@ The **Netflix SQL Project** is a comprehensive **data analysis project** on Netf
 
 Key highlights:
 
-- 🎬 Analyze **content distribution**: Movies vs TV Shows  
-- 🎭 Explore **popular genres, ratings, actors, and directors**  
-- 🌍 Identify **top producing countries** and content trends  
-- 📈 Investigate **content release trends over the last 5–10 years**  
-- ⚡ Categorize content as **family-friendly or violent** using keyword analysis  
+- Analyze **content distribution**: Movies vs TV Shows  
+- Explore **popular genres, ratings, actors, and directors**  
+- Identify **top producing countries** and content trends  
+- Investigate **content release trends over the last 5–10 years**  
+- Categorize content as **family-friendly or violent** using keyword analysis  
 
 This project demonstrates practical **SQL skills** including aggregate functions, string and date manipulation, conditional logic, and analytical queries.
 
