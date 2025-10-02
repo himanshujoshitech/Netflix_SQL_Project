@@ -247,12 +247,12 @@ GROUP BY category;
 
 ## ✅ Conclusion
 
-This project demonstrates practical SQL-based data analysis on a real-world dataset (Netflix). It is suitable for:
+This project demonstrates **practical SQL-based data analysis** on a real-world dataset (**Netflix**).  
+It is suitable for:
 
-Data analysts learning SQL
+- **Data analysts** learning SQL  
+- **Candidates** who want project examples for portfolios or GitHub  
+- **Anyone interested** in exploring streaming-platform data using SQL  
 
-Candidates who want project examples for portfolios/GitHub
+You can copy these queries into your **PostgreSQL environment** to reproduce results and refine them further for **presentations, dashboards, or visualizations**.
 
-Anyone interested in exploring streaming-platform data via SQL
-
-You can copy these queries into your PostgreSQL environment to reproduce results and refine them for presentation or visualization.
