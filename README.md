@@ -22,10 +22,10 @@ This project demonstrates practical **SQL skills** including aggregate functions
 
 ## 🎯 Objectives
 
-1. 📌 **Content Analysis** – Understand distribution by type, genre, and country  
-2. ⭐ **Popularity Analysis** – Find common ratings, top actors, and directors  
-3. 📊 **Trend Analysis** – Explore content added over the years and release patterns  
-4. 🔍 **Content Classification** – Categorize movies and TV shows based on description keywords  
+1. **Content Analysis** – Understand distribution by type, genre, and country  
+2. **Popularity Analysis** – Find common ratings, top actors, and directors  
+3. **Trend Analysis** – Explore content added over the years and release patterns  
+4. **Content Classification** – Categorize movies and TV shows based on description keywords  
 
 ---
 
