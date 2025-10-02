@@ -243,17 +243,10 @@ Performing data cleaning and transformation using string and date functions
 
 Categorizing data dynamically using CASE expressions
 
-Handling multi-valued fields via STRING_TO_ARRAY + UNNEST (and TRIM)
+Handling multi-valued fields via ```sql STRING_TO_ARRAY``` + UNNEST (and TRIM)
 
 Using PostgreSQL features like RANK(), TO_DATE(), and window functions
 
-## 📂 Project Structure
-Netflix_SQL_Project/
-│
-├── README.md           <- Project overview and SQL insights
-├── logo.png            <- Netflix logo for README
-├── netflix_dataset.csv <- Raw Netflix dataset (Kaggle)
-└── queries.sql         <- All SQL queries used for analysis
 
 ## ✅ Conclusion
 
