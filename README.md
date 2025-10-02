@@ -237,15 +237,12 @@ GROUP BY category;
 
 ## 🧠 Key Skills Demonstrated
 
-Writing complex SQL queries with subqueries, aggregates, and window functions
+- Writing **complex SQL queries** with subqueries, aggregates, and window functions  
+- Performing **data cleaning and transformation** using string and date functions  
+- Categorizing data dynamically using **CASE** expressions  
+- Handling **multi-valued fields** via `STRING_TO_ARRAY` + `UNNEST` (and `TRIM`)  
+- Using **PostgreSQL features** like `RANK()`, `TO_DATE()`, and window functions  
 
-Performing data cleaning and transformation using string and date functions
-
-Categorizing data dynamically using CASE expressions
-
-Handling multi-valued fields via ```sql STRING_TO_ARRAY``` + UNNEST (and TRIM)
-
-Using PostgreSQL features like RANK(), TO_DATE(), and window functions
 
 
 ## ✅ Conclusion
