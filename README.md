@@ -91,4 +91,166 @@ FROM (
 WHERE ranking = 1;
 ```
 
-✅ Insight: Find the most popular ratings (PG, TV-MA, etc.) in movies vs TV shows.
+✅ **Insight**: Find the most popular ratings (PG, TV-MA, etc.) in movies vs TV shows.
+
+### 3️⃣ Movies Released in a Specific Year (e.g., 2020)
+SELECT title
+FROM netflix
+WHERE type = 'Movie' 
+  AND release_year = 2020;
+
+
+✅ Insight: Filter movies released in a specific year.
+
+### 4️⃣ Top 5 Countries by Content Count
+SELECT TRIM(UNNEST(STRING_TO_ARRAY(country, ','))) AS country,
+       COUNT(show_id) AS total_content
+FROM netflix
+GROUP BY 1
+ORDER BY total_content DESC
+LIMIT 5;
+
+
+✅ Insight: Identify which countries produce the most Netflix content (handles multiple countries per row).
+
+### 5️⃣ Identify the Longest Movie
+SELECT *
+FROM netflix
+WHERE type = 'Movie'
+  AND duration = (
+    SELECT MAX(duration) FROM netflix WHERE type = 'Movie'
+);
+
+
+✅ Insight: Find the movie with the longest runtime.
+
+### 6️⃣ Find Content Added in Last 5 Years
+SELECT *
+FROM netflix
+WHERE TO_DATE(date_added, 'Month DD, YYYY') >= CURRENT_DATE - INTERVAL '5 years';
+
+
+✅ Insight: Retrieve content that was added to Netflix in the last 5 years.
+
+### 7️⃣ Movies / TV Shows by Director 'Rajiv Chilaka'
+SELECT *
+FROM netflix
+WHERE director ILIKE '%Rajiv Chilaka%';
+
+
+✅ Insight: List all content (movies & TV shows) directed by Rajiv Chilaka.
+
+### 8️⃣ TV Shows with More than 5 Seasons
+SELECT *
+FROM netflix
+WHERE type = 'TV Show'
+  AND SPLIT_PART(TRIM(duration), ' ', 1)::numeric > 5;
+
+
+✅ Insight: List TV shows having more than 5 seasons (uses TRIM to avoid spacing issues).
+
+### 9️⃣ Count the Number of Content Items in Each Genre
+SELECT TRIM(UNNEST(STRING_TO_ARRAY(listed_in, ','))) AS genre,
+       COUNT(show_id) AS total_count
+FROM netflix
+GROUP BY 1
+ORDER BY total_count DESC;
+
+
+✅ Insight: Get how many items belong to each genre (splits multi-genre rows).
+
+### 🔟 Yearly Content Percentage in India
+SELECT EXTRACT(YEAR FROM TO_DATE(date_added, 'Month DD, YYYY')) AS year,
+       COUNT(*) AS yearly_content,
+       ROUND(COUNT(*) * 100.0 / (SELECT COUNT(*) FROM netflix WHERE country ILIKE '%India%'), 2) AS percentage_content
+FROM netflix
+WHERE country ILIKE '%India%'
+  AND date_added IS NOT NULL
+GROUP BY 1
+ORDER BY 1;
+
+
+✅ Insight: For each year, show total Indian content and that year’s percentage share of all Indian content.
+
+### 1️⃣1️⃣ List All Movies That Are Documentaries
+SELECT *
+FROM netflix
+WHERE listed_in ILIKE '%documentaries%';
+
+
+✅ Insight: Find movies that belong to documentary genre(s).
+
+### 1️⃣2️⃣ Find All Content Without a Director
+SELECT *
+FROM netflix
+WHERE director IS NULL
+   OR TRIM(director) = '';
+
+
+✅ Insight: Detect rows with missing director information (NULL or empty string).
+
+### 1️⃣3️⃣ Movies with 'Salman Khan' in Last 10 Years
+SELECT *
+FROM netflix
+WHERE casts ILIKE '%Salman Khan%'
+  AND type = 'Movie'
+  AND release_year >= EXTRACT(YEAR FROM CURRENT_DATE) - 10;
+
+
+✅ Insight: Count/list movies that include Salman Khan released in the last 10 years (inclusive).
+
+### 1️⃣4️⃣ Top 10 Actors in Indian Movies
+SELECT TRIM(UNNEST(STRING_TO_ARRAY(casts, ','))) AS actor,
+       COUNT(show_id) AS movies
+FROM netflix
+WHERE country ILIKE '%India%'
+GROUP BY 1
+ORDER BY movies DESC
+LIMIT 10;
+
+
+✅ Insight: Identify actors who appear most frequently in Indian movies on Netflix.
+
+### 1️⃣5️⃣ Categorize Content as Bad or Good Based on Keywords
+SELECT CASE
+         WHEN description ILIKE '%kill%' OR description ILIKE '%violence%' THEN 'Bad_Content'
+         ELSE 'Good_Content'
+       END AS category,
+       COUNT(*) AS total_count
+FROM netflix
+GROUP BY category;
+
+
+✅ Insight: Classify content by presence of violent keywords in descriptions and count per category.
+
+## 🧠 Key Skills Demonstrated
+
+Writing complex SQL queries with subqueries, aggregates, and window functions
+
+Performing data cleaning and transformation using string and date functions
+
+Categorizing data dynamically using CASE expressions
+
+Handling multi-valued fields via STRING_TO_ARRAY + UNNEST (and TRIM)
+
+Using PostgreSQL features like RANK(), TO_DATE(), and window functions
+
+## 📂 Project Structure
+Netflix_SQL_Project/
+│
+├── README.md           <- Project overview and SQL insights
+├── logo.png            <- Netflix logo for README
+├── netflix_dataset.csv <- Raw Netflix dataset (Kaggle)
+└── queries.sql         <- All SQL queries used for analysis
+
+## ✅ Conclusion
+
+This project demonstrates practical SQL-based data analysis on a real-world dataset (Netflix). It is suitable for:
+
+Data analysts learning SQL
+
+Candidates who want project examples for portfolios/GitHub
+
+Anyone interested in exploring streaming-platform data via SQL
+
+You can copy these queries into your PostgreSQL environment to reproduce results and refine them for presentation or visualization.
